@@ -1,0 +1,18 @@
+*.iml
+.gradle
+.idea/
+.DS_Store
+/local.properties
+local.properties
+
+# 三个模块的构建产物 (.lwtmp 那份 API jar 是**故意**进仓库的, 见 dist/)
+/build
+/lwplugin-api/build
+/samples/companion/build
+/samples/whale-widget/build
+
+# 签名私钥: **绝不进仓库** (协议第 3 节那条纪律)
+*.key
+*.pem
+*.jks
+*.keystore
