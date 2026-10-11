@@ -37,30 +37,47 @@ Luwi 有三层扩展点, 本仓库只管**最下面那一层**:
 
 | `kind` | 宿主 | 天生能做 | 状态 |
 | :-- | :-- | :-- | :-- |
-| `companion` | 另一个 APK (绑定 Service) | **新权限、新清单组件** (桌面小组件只能走这条) | **已接通**, 本仓库两份样例都是它 |
-| `dex` | Luwi 自己声明的 `:plugin` 进程 | 碰 Android 框架、跑自己的逻辑 | 未接通 (P2) |
+| `art` | **没有宿主, 就是一包资源** | 浮标外观 / **桌面组件的内容** / 声明式面板 / 设置项 | **已接通** (2026-10-11, 方案 v2) |
+| `inline` (原 `dex`) | Luwi 自己声明的 `:plugin` 进程 | 碰 Android 框架、跑自己的逻辑、往宿主槽推内容 | **已接通**, 但**只对白名单作者开放** (它和 Luwi 同一个 uid) |
+| `companion` | 另一个 APK (绑定 Service) | **新权限、新清单组件** | 已接通, 但**收窄成例外**: 只有"主 APK 清单里没有的权限与组件"才准用, 而且不许带 LAUNCHER |
 | `script` | Luwi 主进程内的解释器 | 把已有能力拼起来, 零编译 | 未接通 (P3) |
-| `theme` | 没有宿主 (一串资源) | 只换浮标外观 | 未接通 (P3) |
 
-**未接通的那三种现在装不进来** —— 装的时候点名拒绝, 不会假装成功、也不会静默忽略。所以今天要写插件,
-就写 `companion`。
+`dex` 是 `inline` 的别名 (老包照旧能装); 老 `theme` 那一档并进了 `art`。
+
+**四条选型规矩** (先看这个, 再看代码):
+
+1. 能用 `art` 表达的, 绝不写代码
+2. 能写成 `inline` 的, 绝不写伴侣
+3. 伴侣是例外, 而且是**不进桌面**的例外
+4. `inline` **只对白名单作者开放** —— 第三方未经审核的提交, 只收 `art` 与 `companion`
+
+## 桌面组件不再需要第二个 APK
+
+方案 v2 起, 桌面上那两格由 **Luwi 主 APK** 自己声明 (叫"宿主槽"): 「Luwi 动画组件」(`ViewFlipper`
+帧序列) 与「Luwi 图文组件」(图 + 标题 + 正文 + 最多两颗按钮)。插件只写一份 `widget/widget.json`
+往里填内容 —— 装一份 `.lwp` 就完了, 桌面上不会多一个应用。
+
+**同槽互斥**: 一个槽同一时刻只挂一只插件 (装了两只会动的, 桌面上只能上其中一只, 另一只留在插件页
+里等主人改主意)。这是设计不是缺陷, 换一只只重画、不用重装任何东西。
 
 ## 快速开始 · 装一份现成的
 
-装 **鲸鱼娘桌面小组件** (要 Luwi ≥ 2.6.0):
-
-1. 先装同签名的伴侣 APK —— 见 [samples/whale-widget](samples/whale-widget/plugin/README.md)
-2. Luwi → 右上角那颗「菜单」按钮 → 设置 → 插件 → **「从链接装入」**, 粘下面这一条
+装 **鲸鱼娘** (art 域那一份, 要 Luwi ≥ **2.7.6**, 也就是 2026-10-11 那一版): Luwi → 右上角那颗「菜单」按钮 → 设置 → 插件 →
+**「从链接装入」**, 粘下面这一条 —— **没有第二步, 也不用装任何伴侣 APK**
 
 ```
-https://cdn.jsdelivr.net/gh/yuloong07-star/Luwi@main/plugins/whale-widget-1.1.2.lwp
+https://cdn.jsdelivr.net/gh/yuloong07-star/Luwi@main/plugins/art-whale-widget-2.0.0.lwp
 ```
 
-同一份包也躺在本仓库的 [packages/](packages/whale-widget-1.1.2.lwp), 用设置页那颗「装入插件包」
-选它一样能装 —— **两条路走的是同一条校验链**, 从链接装不比从本地装少验一样东西。
+同一份包也躺在本仓库的 [packages/](packages/art-whale-widget-2.0.0.lwp) 与 Luwi 仓库的 `plugins/`,
+用设置页那颗「装入插件包」选它一样能装 —— **两条路走的是同一条校验链**, 从链接装不比从本地装少验
+一样东西。装完 Luwi 会顺手把它挂到动画槽上, 并弹一句"要放到桌面吗" (系统那张"添加到主屏幕"的卡)。
 
-两条要记住的: **装上 ≠ 能用** (装完要在设置页逐条勾能力, 敏感档默认全不勾, 再启用); 这一份样例
-一条能力都不要, 所以它装上就能用, 一个勾选框都不用点。
+老那一片 companion 那条路 (1.1.x) 还在本仓库的 [samples/whale-widget](samples/whale-widget/plugin/README.md),
+但**新的都该走 art**: 两个文件的差别就是"要不要再装一个 APK"。
+
+两条要记住的: **装上 ≠ 能用** (装完要在设置页逐条勾能力, 敏感档默认全不勾, 再启用); art 那两份样例
+一条能力都不要, 所以它们装上就能用, 一个勾选框都不用点。
 
 ## 快速开始 · 自己写一个
 
@@ -141,9 +158,10 @@ node tools/lw-plugin-sign.mjs sign --dir my-plugin --key my.key --out signed --z
 | `version` | 语义化三段, 只许升不许降 |
 | `minLw` | 低于它拒绝安装, 并说清要哪个版本 |
 | `api` | 对外 API 的版本 (现在是 `1`) |
-| `kind` | `companion` / `dex` / `script` / `theme` |
+| `kind` | `companion` / `art` / `inline` (`dex` 是 `inline` 的别名; `script` 未接通, `theme` 已并入 `art`) |
 | `toolPrefix` | `[a-z][a-z0-9_]{1,15}`, 全局唯一; `lw` `dsh` `agent` 是保留字 |
-| `entry` | `companion` 要 `package` + `service` |
+| `entry` | `companion` 要 `package` + `service` (另可给 `apk` 与 `activity`); `inline` 要 `dex` + `class`; `art` 不许给 |
+| `widget` | 可选 (见协议 10.4): 占哪个宿主槽 (`anim` / `image`) 与里面装什么; 也可以单独放一份 `widget/widget.json` |
 | `publisher` | `name` / `key` / `signature` (除开发者模式外必填) |
 | `capabilities` | `requested` 与 `dangerous` 两个数组; **出现未知能力一律拒绝安装** |
 | `tools` | 每条 `<toolPrefix>_<动作>` + `summary` + `params` (参数只认一个窄子集) |
@@ -155,8 +173,8 @@ node tools/lw-plugin-sign.mjs sign --dir my-plugin --key my.key --out signed --z
 
 | 档 | 能力 | 现在 |
 | :-- | :-- | :-- |
-| 普通 | `device.read` `sensor.read` `notify.post` `speech.speak` `clipboard` `files.own` | 已接通 |
-| 普通 | `location.read` `files.read:<前缀>` `net.http:<域名>` `ui.theme` `ui.panel` | 声明可装, 调用时如实拒 (按 P2/P3/P4 逐个接通) |
+| 普通 | `device.read` `sensor.read` `notify.post` `speech.speak` `clipboard` `files.own` `ui.widget` `ui.theme` | 已接通 (`ui.widget` = 往宿主槽里推桌面内容; `ui.theme` = 浮标外观, 在设置页里挑, 读不到回内置) |
+| 普通 | `location.read` `files.read:<前缀>` `net.http:<域名>` `ui.panel` | 声明可装, 调用时如实拒 (按 P2/P4 逐个接通) |
 | 敏感 | `session.post` (把一句话投进会话) | **已接通** (走 `voice/inbox.jsonl`, `source` 记 `plugin:<id>`) |
 | 敏感 | `screen.read` `screen.write` `input.key` `system.write` `camera` `media` `session.create` `session.read` `privileged.key` `privileged.shell` | 声明可装, 调用时如实拒 |
 
@@ -186,32 +204,46 @@ node tools/lw-plugin-sign.mjs sign --dir my-plugin --key my.key --out signed --z
 ### 安全边界
 
 **装一个插件 = 信任它**。它拿到的能力就是你勾给它的那些; 勾了 `privileged.shell` 就等于把特权交给它。
-`dex` 域跑在 Luwi 自己的另一个进程里, 崩了或卡死会被兜住 (转成一条工具错误文本), 但**它拿到的那份
-权限是真的**。另外, 破坏性操作那道应用层弹窗已经撤掉, "要不要做"只在提示词层面问一句 —— 也就是说
-**人没看见就等于没拦**。这也是为什么能力授权、签名、撤销、审计这四样一个都不能少。
+`inline` 域跑在 Luwi 自己的 `:plugin` 进程里, 与 Luwi **同一个 uid** —— 那份代码可以反射拿到 Luwi 的
+一切, 运行时那几道能力检查对它而言是**体验, 不是墙**。所以这一档**只对白名单作者开放** (与 Luwi
+同签名, 或者把公钥指纹写进 `$DSH_HOME/plugins/.inline-allow.json`), 第三方未经审核的提交不要走这条路。
+崩或卡死会被兜住 (转成一条工具错误文本 / 超时如实报), 但**它拿到的那份权限是真的**。另外, 破坏性
+操作那道应用层弹窗已经撤掉, "要不要做"只在提示词层面问一句 —— 也就是说**人没看见就等于没拦**。
+这也是为什么能力授权、签名、白名单、撤销、审计这几样一个都不能少。
 
 ## 目录
 
 | 路径 | 是什么 |
 | :-- | :-- |
-| [docs/LW-软件插件协议.md](docs/LW-软件插件协议.md) | **协议全文** (2026-10-08 冻结的 v1, 一字未改) |
+| [docs/LW-软件插件协议.md](docs/LW-软件插件协议.md) | **协议全文** (2026-10-08 冻结的 `lw-plugin/1`, 2026-10-11 按方案 v2 增补: `art` / `inline` 两域、白名单、宿主槽) |
 | [docs/LW-软件插件协议-讨论稿.md](docs/LW-软件插件协议-讨论稿.md) | 冻结前的讨论稿 —— 决策记录, 已被冻结版取代的地方见它第 0 节第 11 条 |
 | [lwplugin-api/](lwplugin-api) | 对外接口那一份 (`ILwPlugin` / `ILwPluginContext` / 常量与 `Bundle` 小工具), 零依赖零资源 |
 | [dist/lwplugin-api-1.jar](dist/lwplugin-api-1.jar) | 上面那个模块产出的 API jar, 第三方插件对着它编译就行 |
-| [samples/companion/](samples/companion) | 样例伴侣: 三条工具 + 自带界面 + 被 Luwi 绑的 Service |
-| [samples/whale-widget/](samples/whale-widget) | 样例伴侣: 鲸鱼娘桌面小组件 (协议 10.4 那条路的实物) |
+| [samples/art-whale-widget/](samples/art-whale-widget) | **零代码的 art 样例**: 鲸鱼娘 2.0.0 (两套帧, 占动画槽, 装完即用) |
+| [samples/art-ball-theme/](samples/art-ball-theme) | **浮标外观样例** (协议 10.1): 五个状态五张图, 设置页里挑一下 |
+| [samples/inline-timer/](samples/inline-timer) | **inline 样例**: 番茄钟 (Java 源码 + `tools/build-dex.ps1` 出 `main.dex`, 会把状态推到图文槽) |
+| [samples/companion/](samples/companion) | 样例伴侣: 三条工具 + 自带界面 + 被 Luwi 绑的 Service (界面入口写在 `entry.activity`, 不带 LAUNCHER) |
+| [samples/whale-widget/](samples/whale-widget) | 老那一片 companion 样例 (1.1.x): 桌面组件由伴侣 APK 声明的那条路 |
 | [tools/lw-plugin-sign.mjs](tools/lw-plugin-sign.mjs) | 签名工具: `keygen` 与 `sign` |
 | [packages/](packages) | 签好名、可以直接装的包 |
 
 ## 构建
 
-需要 JDK 21、Android SDK (`compileSdk 37` / `build-tools 37.0.0`)。两份样例都是独立的 Gradle 模块,
-与 Luwi 主工程只共三样东西: 那份接口 (`:lwplugin-api`)、一条自定义权限、以及包里那份 `plugin.json`。
+需要 JDK 21、Android SDK (`compileSdk 37` / `build-tools 37.0.0`)。**每份样例要什么:**
+
+| 样例 | 怎么出它那份产物 |
+| :-- | :-- |
+| `samples/companion` | Gradle 模块 (`:sample-companion`), `./gradlew :sample-companion:assembleDebug` |
+| `samples/whale-widget` | 老那一片伴侣 (1.1.x): Gradle 模块 (`:sample-whale-widget`), `./gradlew :sample-whale-widget:assembleDebug` |
+| `samples/art-whale-widget` | **不用编译器**: `python tools/build-frames.py` 出帧图, 再 `node ../tools/lw-plugin-sign.mjs sign` 签一份 |
+| `samples/art-ball-theme` | 同上: `python tools/build-art.py` 出五张图, 再签名 |
+| `samples/inline-timer` | `pwsh -File tools/build-dex.ps1` (**它自己会先编 `:lwplugin-api`** 拿那份 classes.jar, 再用 javac + d8 出 `main.dex`), 然后签名 |
 
 ```bash
 ./gradlew :lwplugin-api:assembleRelease      # 出 AAR, 里面的 classes.jar 就是 dist 那份 API jar
 ./gradlew :sample-companion:assembleDebug
 ./gradlew :sample-whale-widget:assembleDebug
+# art 那两份只出资源 (见上表), inline 那份用 build-dex.ps1 出 main.dex
 ```
 
 样例 APK 要用与 Luwi 同一把 debug keystore 签才是"同签名伴侣"那一档 (系统自动给 `signature` 级权限),

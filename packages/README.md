@@ -14,8 +14,14 @@ Luwi → 右上角那颗「菜单」按钮 → 设置 → 插件 → **「从链
 
 | 包 | 它是什么 | 伴侣 APK | 最低 Luwi |
 | :-- | :-- | :-- | :-- |
+| `art-whale-widget-2.0.0.lwp` | **鲸鱼娘 (art 域, 推荐)**: 零代码、零能力, 桌面上那一格由 Luwi 的宿主槽画 | **不需要** | 2.7.6 |
+| `art-ball-theme-1.0.0.lwp` | **浮标外观 (art 域)**: 五个状态五张图, 装完在设置页「浮标外观」那一行挑 | **不需要** | 2.7.6 |
+| `inline-timer-1.0.0.lwp` | 番茄钟 (inline 域样例): 一份 dex 跑在 Luwi 的 `:plugin` 进程里, 会把状态推到图文槽 | 不需要 (但**要先把作者指纹加进 `.inline-allow.json`**) | 2.7.6 |
 | `whale-widget-1.1.4.lwp` | 鲸鱼娘桌面小组件 | 包里带地址, 自动装 (`whale-widget-1.1.4-companion.zip`) | 2.6.0 |
 | `whale-widget-1.1.2.lwp` | 鲸鱼娘桌面小组件 (旧的一份) | 要自己装, 而那一份 APK 只在 GitHub Release 上 | 2.6.0 |
+
+**新装就用第一份**: 它和下面两份做的是同一件事 (桌面上放一只会动的鲸鱼娘), 差别只在**不用装第二个
+APK** —— 下面那两份是 companion 那条路的实物, 留着给"要独立组件名"那种场合。
 
 链接用仓库原地址 (`https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/main/packages/…`)
 也行, 或者 jsDelivr 那一份 (`https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@main/packages/…`)
