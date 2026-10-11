@@ -66,12 +66,13 @@ Luwi 有三层扩展点, 本仓库只管**最下面那一层**:
 **「从链接装入」**, 粘下面这一条 —— **没有第二步, 也不用装任何伴侣 APK**
 
 ```
-https://cdn.jsdelivr.net/gh/yuloong07-star/Luwi@main/plugins/art-whale-widget-2.0.0.lwp
+https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/art-whale-widget-2.0.0.lwp
 ```
 
-同一份包也躺在本仓库的 [packages/](packages/art-whale-widget-2.0.0.lwp) 与 Luwi 仓库的 `plugins/`,
-用设置页那颗「装入插件包」选它一样能装 —— **两条路走的是同一条校验链**, 从链接装不比从本地装少验
-一样东西。装完 Luwi 会顺手把它挂到动画槽上, 并弹一句"要放到桌面吗" (系统那张"添加到主屏幕"的卡)。
+同一份包也躺在本仓库的 [packages/](packages/art-whale-widget-2.0.0.lwp), 用设置页那颗「装入插件包」
+选它一样能装 —— **两条路走的是同一条校验链**, 从链接装不比从本地装少验一样东西。装完 Luwi 会顺手
+把它挂到动画槽上, 并弹一句"要放到桌面吗" (系统那张"添加到主屏幕"的卡)。**插件包只住本仓库**:
+Luwi 那边不放 `.lwp` (2026-10-11 主人定的口径), 它的 `plugins/` 只剩一页指路。
 
 老那一片 companion 那条路 (1.1.x) 还在本仓库的 [samples/whale-widget](samples/whale-widget/plugin/README.md),
 但**新的都该走 art**: 两个文件的差别就是"要不要再装一个 APK"。

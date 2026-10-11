@@ -6,8 +6,8 @@
 ```powershell
 cd samples\art-ball-theme
 python tools\build-art.py
-node ..\..\tools\lw-plugin-sign.mjs sign --dir plugin --key ..\..\..\backups\lw-publisher-key.pem `
-  --out ..\..\.lwtmp\art-ball --zip ..\..\plugins\art-ball-theme-1.0.0.lwp
+node ..\..\tools\lw-plugin-sign.mjs sign --dir plugin --key <你自己的私钥> `
+  --out ..\..\signed --zip ..\..\signed\art-ball-theme-1.0.0.lwp
 ```
 
 装完在 Luwi → 设置 → 插件 → **「浮标外观」** 那一行里挑它; 换回"内置画法"也是那一行。

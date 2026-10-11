@@ -4,6 +4,18 @@
 一个: 它们需要一个**稳定的 https 链接** —— 协议第 13 节那条"从链接安装"要的就是一个能下到字节的地址,
 而协议第 8.1 节那条 `entry.apk` 要的是伴侣 APK 的地址。
 
+**插件包只住这里** (2026-10-11 主人定的口径): Luwi 应用仓库那边不放 `.lwp`, 它的 `plugins/` 只剩一页
+指路。链接钉在内容 tag 上而不是 `@main` —— jsDelivr 对分支引用会 301 到 raw, 而 raw 在常见网络里不通。
+
+```
+art-whale-widget-2.0.0.lwp  https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/art-whale-widget-2.0.0.lwp
+art-ball-theme-1.0.0.lwp    https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/art-ball-theme-1.0.0.lwp
+inline-timer-1.0.0.lwp      https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/inline-timer-1.0.0.lwp
+```
+
+`cdn.jsdelivr.net` 不通时把域名换成 `fastly.jsdelivr.net` / `gcore.jsdelivr.net` / `testingcf.jsdelivr.net`
+任一个, 内容同一份。
+
 **为什么不用 GitHub Release 的直链**: `github.com` 的 Release 下载在这两台机器上都实测不通 (2026-10-11:
 手机侧 ICMP 通而 443 超时), 而 jsDelivr 通 —— 协议那边认的是"任意 https", 换一条能下到字节的就行。
 
