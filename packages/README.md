@@ -14,7 +14,7 @@ Luwi → 右上角那颗「菜单」按钮 → 设置 → 插件 → **「从链
 
 | 包 | 它是什么 | 伴侣 APK | 最低 Luwi |
 | :-- | :-- | :-- | :-- |
-| `whale-widget-1.1.3.lwp` | 鲸鱼娘桌面小组件 | 包里带地址, 自动装 (`whale-widget-1.1.3.zip`) | 2.6.0 |
+| `whale-widget-1.1.4.lwp` | 鲸鱼娘桌面小组件 | 包里带地址, 自动装 (`whale-widget-1.1.4-companion.zip`) | 2.6.0 |
 | `whale-widget-1.1.2.lwp` | 鲸鱼娘桌面小组件 (旧的一份) | 要自己装, 而那一份 APK 只在 GitHub Release 上 | 2.6.0 |
 
 链接用仓库原地址 (`https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/main/packages/…`)
@@ -27,10 +27,16 @@ Luwi → 右上角那颗「菜单」按钮 → 设置 → 插件 → **「从链
 
 ## 伴侣 APK 为什么叫 `.zip`
 
-`whale-widget-1.1.3.zip` **就是那份伴侣 APK**, 只是改了个扩展名。原因只有一个: jsDelivr 对
+`whale-widget-1.1.4-companion.zip` **就是那份伴侣 APK**, 只是改了个扩展名。原因只有一个: jsDelivr 对
 `.apk` 会 **301 跳到 `raw.githubusercontent.com`** (对 `.exe` 直接 403), 而那个域名在常见网络里是
 连不上的 (2026-10-11 实测: 手机上打开它一直转圈); 换成 CDN 肯直发的扩展名就行了 —— 它不按大小卡
 (同一时刻一个 32 MB 的 `.wasm` 是 200 直发的)。字节一个都没动, 手动下载之后把后缀改回 `.apk` 即可装。
+
+## 一条发版纪律: **文件名不要复用**
+
+jsDelivr 对同名文件有很长的边缘缓存 (2026-10-11 实测: 同一个 `@main` 路径被重发三次, 它一直给的是
+第一次那一版, 连 `purge.jsdelivr.net` 都没把那一份刷掉)。所以**每一版都换新文件名** (版本号就在
+名字里), 而不是原地改内容 —— 这也正是这一层只留最新那一份、旧版本跟 Release 走的原因。
 
 ## 一条纪律
 
