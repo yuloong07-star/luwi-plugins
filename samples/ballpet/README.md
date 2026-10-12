@@ -1,4 +1,4 @@
-# 浮标外观 · 深海琉璃 (art 样例)
+# BallPet · 浮标外观 (art 样例)
 
 给 Luwi 那颗浮标换一套画法: 一份 `theme/ball.json` + 几张图 = 一套新的浮标外观,
 **不写一行代码、也不用装第二个 APK**。
@@ -11,7 +11,7 @@
 ## 目录
 
 ```
-art-ball-glass/
+ballpet/
 ├─ README.md                  ← 你在这里
 ├─ tools/build-art.mjs        素材生成器 (纯 Node, 零依赖)
 └─ plugin/                    这个目录就是插件包的内容
@@ -26,7 +26,7 @@ art-ball-glass/
 ## 跑一遍
 
 ```sh
-cd samples/art-ball-glass
+cd samples/ballpet
 node tools/build-art.mjs              # 重新生成 plugin/art/ 下的 30 张图
 ```
 
@@ -36,8 +36,8 @@ node tools/build-art.mjs              # 重新生成 plugin/art/ 下的 30 张�
 ## 打包签名
 
 ```sh
-node tools/lw-plugin-sign.mjs sign --dir samples/art-ball-glass/plugin \
-  --key <你自己的私钥> --out signed --zip signed/art-ball-glass-1.0.0.lwp
+node tools/lw-plugin-sign.mjs sign --dir samples/ballpet/plugin \
+  --key <你自己的私钥> --out signed --zip signed/ballpet-1.0.0.lwp
 ```
 
 私钥不进仓库; 这一层只推源码, 签好的 `.lwp` 按纪律放 [`packages/`](../../packages)
@@ -45,7 +45,7 @@ node tools/lw-plugin-sign.mjs sign --dir samples/art-ball-glass/plugin \
 
 ## 装完怎么验
 
-1. 装上之后 Luwi → 设置 → 插件 → **「浮标外观」** 那一行里能挑到「深海琉璃」
+1. 装上之后 Luwi → 设置 → 插件 → **「浮标外观」** 那一行里能挑到「BallPet」
 2. 挑中之后球立刻换成琉璃球; 说一句话 -> 「正在听」那一档应当动起来 (脉冲帧)
 3. 换回「内置画法」立刻恢复; **把插件删掉也应当恢复** —— 这一条是 art 域的验收判据
 

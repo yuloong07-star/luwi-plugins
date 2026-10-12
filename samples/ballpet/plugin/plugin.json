@@ -1,12 +1,12 @@
 {
   "protocol": "lw-plugin/1",
-  "id": "io.github.yuloong07star.luwi.sample.ballglass",
-  "name": "外观 · 深海琉璃",
+  "id": "io.github.yuloong07star.luwi.sample.ballpet",
+  "name": "BallPet",
   "version": "1.0.0",
   "minLw": "2.7.6",
   "api": "1",
   "kind": "art",
-  "toolPrefix": "ballglass",
+  "toolPrefix": "ballpet",
   "capabilities": {
     "requested": [],
     "dangerous": []

@@ -1,5 +1,5 @@
 {
-  "name": "深海琉璃",
+  "name": "BallPet",
   "sizeDp": 48,
   "hideBuiltinText": false,
   "states": {
@@ -19,6 +19,10 @@
     "failed": "#FF6B6B"
   },
   "frames": {
-    "listening": { "dir": "art/listen", "count": 24, "fps": 12 }
+    "listening": {
+      "dir": "art/listen",
+      "count": 24,
+      "fps": 12
+    }
   }
 }

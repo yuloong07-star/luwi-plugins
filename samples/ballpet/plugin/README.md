@@ -1,4 +1,4 @@
-# 外观 · 深海琉璃 (art 域)
+# BallPet · 浮标外观 (art 域)
 
 协议第 10.1 节那一档的实物: **不写一行代码**, 一份 `theme/ball.json` + 一组图,
 在设置页「浮标外观」那一行里挑一下, 球就换成这套画法。
@@ -38,7 +38,7 @@ node tools/build-art.mjs
 
 ```sh
 node ../../tools/lw-plugin-sign.mjs sign --dir plugin --key <你自己的私钥> \
-  --out ../../signed --zip ../../signed/art-ball-glass-1.0.0.lwp
+  --out ../../signed --zip ../../signed/ballpet-1.0.0.lwp
 ```
 
 装完在 Luwi → 设置 → 插件 → **「浮标外观」** 那一行里挑它; 换回"内置画法"也是那一行。
