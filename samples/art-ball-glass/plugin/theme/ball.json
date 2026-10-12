@@ -1,0 +1,24 @@
+{
+  "name": "深海琉璃",
+  "sizeDp": 48,
+  "hideBuiltinText": false,
+  "states": {
+    "idle": "art/ball-idle.png",
+    "listening": "art/ball-listening.png",
+    "thinking": "art/ball-thinking.png",
+    "speaking": "art/ball-speaking.png",
+    "peeked": "art/ball-peeked.png",
+    "failed": "art/ball-failed.png"
+  },
+  "ring": {
+    "idle": "#7FC8FF",
+    "listening": "#6EF3B0",
+    "thinking": "#FFC24D",
+    "speaking": "#B388FF",
+    "peeked": "#FF9AD5",
+    "failed": "#FF6B6B"
+  },
+  "frames": {
+    "listening": { "dir": "art/listen", "count": 24, "fps": 12 }
+  }
+}
