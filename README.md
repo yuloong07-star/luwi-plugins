@@ -74,6 +74,15 @@ https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/a
 把它挂到动画槽上, 并弹一句"要放到桌面吗" (系统那张"添加到主屏幕"的卡)。**插件包只住本仓库**:
 Luwi 那边不放 `.lwp` (2026-10-11 主人定的口径), 它的 `plugins/` 只剩一页指路。
 
+**这一层还有一份机器可读的清单**: [index.json](index.json) —— 协议第 13 节那份 `lw-plugin-index/1`,
+这一层每一份包的 id / 版本 / 地址 / 整包 sha256 / 体积 / 发布者指纹 / 能力 / `minLw`, 末尾带一份
+`revoked`。它**不是手抄的**: `tools/lw-plugin-index.mjs build` 会把每份包拆开, 逐文件哈希与发布者签名
+都验一遍, 验不过的那一份根本不进索引; 发版前拿 `check` 与包对一遍。**Luwi 那边读索引那一半 (P5)
+还没接通**, 所以今天装机还是靠上面那条链接。能直接取的地址是
+`https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@index-1/index.json` (手机上实测通的那一条;
+`@main` 那一份要 raw 通的地方才取得到)。
+
+
 老那一片 companion 那条路 (1.1.x) 还在本仓库的 [samples/whale-widget](samples/whale-widget/plugin/README.md),
 但**新的都该走 art**: 两个文件的差别就是"要不要再装一个 APK"。
 
@@ -202,6 +211,10 @@ node tools/lw-plugin-sign.mjs sign --dir my-plugin --key my.key --out signed --z
 只许 https (重定向到 http 即中止), 下到暂存区后走**与本地包完全同一条**校验链。**不做自动更新**
 —— dex 的更新等于换一份代码在跑, 必须人点一下。
 
+索引那一半 (第 13 节那份 `lw-plugin-index/1`) 本仓库已经摆出来了: 根上那份 [index.json](index.json)。
+但要说清楚 —— **Luwi 还没读它**, 索引属于 P5, 眼下只有"粘一条 https 链接"这条入口; 等 Luwi 那边
+接通, 这份索引不用改一个字就能用。
+
 ### 安全边界
 
 **装一个插件 = 信任它**。它拿到的能力就是你勾给它的那些; 勾了 `privileged.shell` 就等于把特权交给它。
@@ -226,6 +239,8 @@ node tools/lw-plugin-sign.mjs sign --dir my-plugin --key my.key --out signed --z
 | [samples/companion/](samples/companion) | 样例伴侣: 三条工具 + 自带界面 + 被 Luwi 绑的 Service (界面入口写在 `entry.activity`, 不带 LAUNCHER) |
 | [samples/whale-widget/](samples/whale-widget) | 老那一片 companion 样例 (1.1.x): 桌面组件由伴侣 APK 声明的那条路 |
 | [tools/lw-plugin-sign.mjs](tools/lw-plugin-sign.mjs) | 签名工具: `keygen` 与 `sign` |
+| [tools/lw-plugin-index.mjs](tools/lw-plugin-index.mjs) | 索引工具: `build` 从 `packages/` 现算一份 `index.json`, `check` 拿现成那份与包对一遍 (逐文件哈希 + 发布者签名) |
+| [index.json](index.json) | **插件索引** (`lw-plugin-index/1`, 协议第 13 节): 每份包的 id / 版本 / 地址 / `sha256` / 体积 / 发布者 / 能力 / `minLw`, 末尾带 `revoked` |
 | [packages/](packages) | 签好名、可以直接装的包 |
 
 ## 构建

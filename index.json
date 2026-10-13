@@ -1,0 +1,163 @@
+{
+  "format": "lw-plugin-index/1",
+  "generated": "2026-10-13T02:16:19Z",
+  "source": "https://github.com/yuloong07-star/luwi-plugins",
+  "note": "本文件由 tools/lw-plugin-index.mjs 生成: 每个字段都是从 packages/ 里那份 .lwp 现算的 (逐文件哈希与发布者签名都验过)。sha256 是整包的摘要, 带 sha256: 前缀。revoked 是撤销表, 命中即不该装。",
+  "plugins": [
+    {
+      "id": "io.example.timer",
+      "name": "番茄钟",
+      "version": "1.0.0",
+      "kind": "inline",
+      "minLw": "2.7.6",
+      "api": "1",
+      "toolPrefix": "timer",
+      "capabilities": {
+        "requested": [
+          "ui.widget"
+        ],
+        "dangerous": []
+      },
+      "tools": [
+        "timer_start",
+        "timer_state",
+        "timer_boom"
+      ],
+      "publisher": {
+        "name": "yuloong07-star",
+        "fingerprint": "sha256:ea8098f95122611234b96f89912b06bfe4dc218930936844b463088ae89eea52",
+        "key": "ecdsa-p256:MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfPe9pBGIJSqcDBmIFUUK+Lqu7+cv5T3MDq09jniLd+Q7ZcoQ8DmfIyEjMIgsLd7RfmsiW7NKkugE8/tw6x6LSg=="
+      },
+      "url": "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/inline-timer-1.0.0.lwp",
+      "mirrors": [
+        "https://fastly.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/inline-timer-1.0.0.lwp",
+        "https://gcore.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/inline-timer-1.0.0.lwp",
+        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/inline-timer-1.0.0.lwp"
+      ],
+      "sha256": "sha256:20660ee4fcc1ec947b89ac6637a73dde6b7ee21ecee92e621ceb89846582be16",
+      "size": 7014,
+      "path": "packages/inline-timer-1.0.0.lwp"
+    },
+    {
+      "id": "io.github.yuloong07star.luwi.sample.balltheme",
+      "name": "示例外观 · 青瓷",
+      "version": "1.0.0",
+      "kind": "art",
+      "minLw": "2.7.6",
+      "api": "1",
+      "toolPrefix": "look",
+      "capabilities": {
+        "requested": [],
+        "dangerous": []
+      },
+      "tools": [],
+      "publisher": {
+        "name": "yuloong07-star",
+        "fingerprint": "sha256:ea8098f95122611234b96f89912b06bfe4dc218930936844b463088ae89eea52",
+        "key": "ecdsa-p256:MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfPe9pBGIJSqcDBmIFUUK+Lqu7+cv5T3MDq09jniLd+Q7ZcoQ8DmfIyEjMIgsLd7RfmsiW7NKkugE8/tw6x6LSg=="
+      },
+      "url": "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/art-ball-theme-1.0.0.lwp",
+      "mirrors": [
+        "https://fastly.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/art-ball-theme-1.0.0.lwp",
+        "https://gcore.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/art-ball-theme-1.0.0.lwp",
+        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/art-ball-theme-1.0.0.lwp"
+      ],
+      "sha256": "sha256:c5d15d693f7d29d3c240c12ce594f9a9b0ecad3fb26d99bfbba956548efad425",
+      "size": 12222,
+      "path": "packages/art-ball-theme-1.0.0.lwp"
+    },
+    {
+      "id": "io.github.yuloong07star.luwi.sample.whalewidget",
+      "name": "鲸鱼娘",
+      "version": "2.0.0",
+      "kind": "art",
+      "minLw": "2.7.6",
+      "api": "1",
+      "toolPrefix": "whale",
+      "capabilities": {
+        "requested": [],
+        "dangerous": []
+      },
+      "tools": [],
+      "publisher": {
+        "name": "yuloong07-star",
+        "fingerprint": "sha256:ea8098f95122611234b96f89912b06bfe4dc218930936844b463088ae89eea52",
+        "key": "ecdsa-p256:MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfPe9pBGIJSqcDBmIFUUK+Lqu7+cv5T3MDq09jniLd+Q7ZcoQ8DmfIyEjMIgsLd7RfmsiW7NKkugE8/tw6x6LSg=="
+      },
+      "url": "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/art-whale-widget-2.0.0.lwp",
+      "mirrors": [
+        "https://fastly.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/art-whale-widget-2.0.0.lwp",
+        "https://gcore.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/art-whale-widget-2.0.0.lwp",
+        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/art-whale-widget-2.0.0.lwp"
+      ],
+      "sha256": "sha256:969da193a853d7b2095789384235e4f3c179f89e65d41bd2da07576297a9a691",
+      "size": 2396996,
+      "path": "packages/art-whale-widget-2.0.0.lwp"
+    },
+    {
+      "id": "io.github.yuloong07star.luwi.sample.whalewidget",
+      "name": "鲸鱼娘桌面小组件",
+      "version": "1.1.4",
+      "kind": "companion",
+      "minLw": "2.6.0",
+      "api": "1",
+      "toolPrefix": "whale",
+      "capabilities": {
+        "requested": [],
+        "dangerous": []
+      },
+      "tools": [
+        "whale_list",
+        "whale_next",
+        "whale_set"
+      ],
+      "publisher": {
+        "name": "yuloong07-star",
+        "fingerprint": "sha256:ea8098f95122611234b96f89912b06bfe4dc218930936844b463088ae89eea52",
+        "key": "ecdsa-p256:MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfPe9pBGIJSqcDBmIFUUK+Lqu7+cv5T3MDq09jniLd+Q7ZcoQ8DmfIyEjMIgsLd7RfmsiW7NKkugE8/tw6x6LSg=="
+      },
+      "url": "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/whale-widget-1.1.4.lwp",
+      "mirrors": [
+        "https://fastly.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/whale-widget-1.1.4.lwp",
+        "https://gcore.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/whale-widget-1.1.4.lwp",
+        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/whale-widget-1.1.4.lwp"
+      ],
+      "sha256": "sha256:bab3dee7f9a9416ba880998f026e14b73d8bad849374885c374eceee13f3208c",
+      "size": 7748,
+      "path": "packages/whale-widget-1.1.4.lwp"
+    },
+    {
+      "id": "io.github.yuloong07star.luwi.sample.whalewidget",
+      "name": "鲸鱼娘桌面小组件",
+      "version": "1.1.2",
+      "kind": "companion",
+      "minLw": "2.6.0",
+      "api": "1",
+      "toolPrefix": "whale",
+      "capabilities": {
+        "requested": [],
+        "dangerous": []
+      },
+      "tools": [
+        "whale_list",
+        "whale_next",
+        "whale_set"
+      ],
+      "publisher": {
+        "name": "yuloong07-star",
+        "fingerprint": "sha256:ea8098f95122611234b96f89912b06bfe4dc218930936844b463088ae89eea52",
+        "key": "ecdsa-p256:MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfPe9pBGIJSqcDBmIFUUK+Lqu7+cv5T3MDq09jniLd+Q7ZcoQ8DmfIyEjMIgsLd7RfmsiW7NKkugE8/tw6x6LSg=="
+      },
+      "url": "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/whale-widget-1.1.2.lwp",
+      "mirrors": [
+        "https://fastly.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/whale-widget-1.1.2.lwp",
+        "https://gcore.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/whale-widget-1.1.2.lwp",
+        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.6/packages/whale-widget-1.1.2.lwp"
+      ],
+      "sha256": "sha256:125ad6f6077484b11ff5b37a55b47ac8a4ca5804ebc34b94591a3b8012ee3923",
+      "size": 6968,
+      "path": "packages/whale-widget-1.1.2.lwp"
+    }
+  ],
+  "revoked": []
+}

@@ -16,6 +16,27 @@ inline-timer-1.0.0.lwp      https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plug
 `cdn.jsdelivr.net` 不通时把域名换成 `fastly.jsdelivr.net` / `gcore.jsdelivr.net` / `testingcf.jsdelivr.net`
 任一个, 内容同一份。
 
+## 索引
+
+这一层的机器可读版本是仓库根上那份 [index.json](../index.json) (`lw-plugin-index/1`, 协议第 13 节):
+上面每一份包的 `id` / `version` / `url` / `sha256` / `size` / 发布者指纹 / 能力 / `minLw`, 末尾带一份
+`revoked`。**它是从包现算的, 不是手抄的** —— `tools/lw-plugin-index.mjs` 会把每份包拆开, 逐文件哈希与
+发布者签名都验一遍; 验不过的那一份根本不进索引 (退出码 1):
+
+```bash
+node tools/lw-plugin-index.mjs check --dir packages   # 索引与包一致吗 (发版前跑这条)
+node tools/lw-plugin-index.mjs build --dir packages   # 重新生成 index.json
+```
+
+链接一律钉在**内容 tag** 上 (`--ref`, 现在是 `plugins-2.7.6`): jsDelivr 对分支引用会 301 到 raw, 而 raw
+在常见网络里不通 —— 所以**换包就换 tag**, 新文件名与 `--ref` 一起更新, 旧 tag 留着不动。
+`revoked` 是留给人的那一段 (协议第 12 节): 要撤一份包时往那条数组里加一条 `{ id, fingerprint, reason, at }`,
+生成器只从包里算那几列, 不会把这张表抹掉。
+
+**索引自己的地址也钉在 tag 上** (同一个理由): 手机上取得到的是
+`https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@index-1/index.json`;
+下次重新生成索引时另打一个 tag (`index-2`), 旧的那一份留着不动。
+
 **为什么不用 GitHub Release 的直链**: `github.com` 的 Release 下载在这两台机器上都实测不通 (2026-10-11:
 手机侧 ICMP 通而 443 超时), 而 jsDelivr 通 —— 协议那边认的是"任意 https", 换一条能下到字节的就行。
 
