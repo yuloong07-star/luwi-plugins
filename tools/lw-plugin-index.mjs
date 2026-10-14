@@ -24,6 +24,11 @@
  * - **索引里的 `url` 是第一个可用的地址, 其余 jsDelivr 镜像进 `mirrors`**: 协议那边认的是"任意
  *   https", 主机不通时换一个镜像域就行, 内容同一份
  *
+ * **描述与标签走侧车** (`tools/lw-plugin-index.meta.json`, 2026-10-16): `plugin.json` 是**签名载荷**
+ * 的一部分, 往里加一个"给人看的简介"就要全部重签 —— 所以这两样放在索引这一侧, 按 `id@version`
+ * (或裸 `id`) 合并进条目; 侧车里没有的那一条就没有简介, 不拦。内容是**手写**的, 生成器只搬运
+ * 不校验 (与 revoked 同一个待遇)。
+ *
  * 验签那一段与 Kotlin 那侧 (`plugin/PluginSignature.kt`) 必须逐字节相同, 规范化规则见 `canonical()`;
  * 签名的工具是 `tools/lw-plugin-sign.mjs`, 两边算的是同一份载荷。
  */
@@ -174,6 +179,7 @@ async function entryOf(name, bytes) {
 
   const url = `${base}${name}`
   const file = `packages/${name}`
+  const described = metaFor(manifest.id, manifest.version)
   return {
     entry: {
       id: manifest.id,
@@ -194,6 +200,9 @@ async function entryOf(name, bytes) {
       sha256: sha256(bytes),
       size: bytes.length,
       path: file,
+      // 侧车那两样 (给人看的): 侧车里没有就整个不写这两个键 (JSON.stringify 会丢掉 undefined)
+      description: described?.description,
+      tags: described?.tags,
     },
     note: `${fingerprint.slice(7, 15)}…`,
   }
@@ -201,6 +210,32 @@ async function entryOf(name, bytes) {
 
 const names = (await readdir(directory)).filter((name) => name.endsWith('.lwp')).sort()
 if (names.length === 0) throw new Error(`${directory} 里一份 .lwp 都没有`)
+
+/**
+ * 侧车: 按 `id@version` (没有就裸 `id`) 给的那两样"给人看的"字段
+ *
+ * 读不到 (文件不在 / 不是 JSON / 是数组) 就当没有 —— 简介是装饰, 它缺席不该拦住发版
+ */
+async function metaOf(path) {
+  try {
+    const parsed = JSON.parse(await readFile(path, 'utf8'))
+    return parsed !== null && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {}
+  } catch (error) {
+    if (error.code !== 'ENOENT') console.warn(`侧车 ${path} 没读成 (${error.message}), 这一次不带简介`)
+    return {}
+  }
+}
+
+const meta = await metaOf(resolve(option('meta', 'tools/lw-plugin-index.meta.json')))
+
+/** 这一条的简介与标签: 先认 `id@version`, 再退裸 `id`; 形状不对的当没有 */
+function metaFor(id, version) {
+  const one = meta[`${id}@${version}`] ?? meta[id]
+  if (one === null || typeof one !== 'object' || Array.isArray(one)) return null
+  const description = typeof one.description === 'string' ? one.description : ''
+  const tags = Array.isArray(one.tags) ? one.tags.filter((tag) => typeof tag === 'string') : []
+  return description === '' && tags.length === 0 ? null : { description, tags }
+}
 
 const entries = []
 for (const name of names) {

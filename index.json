@@ -1,6 +1,6 @@
 {
   "format": "lw-plugin-index/1",
-  "generated": "2026-10-13T02:16:19Z",
+  "generated": "2026-10-14T06:40:31Z",
   "source": "https://github.com/yuloong07-star/luwi-plugins",
   "note": "本文件由 tools/lw-plugin-index.mjs 生成: 每个字段都是从 packages/ 里那份 .lwp 现算的 (逐文件哈希与发布者签名都验过)。sha256 是整包的摘要, 带 sha256: 前缀。revoked 是撤销表, 命中即不该装。",
   "plugins": [
@@ -36,7 +36,14 @@
       ],
       "sha256": "sha256:20660ee4fcc1ec947b89ac6637a73dde6b7ee21ecee92e621ceb89846582be16",
       "size": 7014,
-      "path": "packages/inline-timer-1.0.0.lwp"
+      "path": "packages/inline-timer-1.0.0.lwp",
+      "description": "番茄钟: 开始/查看/到点, 状态会推到桌面的图文槽。inline 域, 要先把发布者指纹加进 .inline-allow.json 才装得上",
+      "tags": [
+        "timer",
+        "inline",
+        "widget",
+        "番茄钟"
+      ]
     },
     {
       "id": "io.github.yuloong07star.luwi.sample.balltheme",
@@ -64,7 +71,15 @@
       ],
       "sha256": "sha256:c5d15d693f7d29d3c240c12ce594f9a9b0ecad3fb26d99bfbba956548efad425",
       "size": 12222,
-      "path": "packages/art-ball-theme-1.0.0.lwp"
+      "path": "packages/art-ball-theme-1.0.0.lwp",
+      "description": "浮标外观样例「青瓷」: 五个状态各一张静态图, 装完在设置 → 插件 → 浮标外观里挑一下",
+      "tags": [
+        "ball",
+        "theme",
+        "art",
+        "外观",
+        "浮标"
+      ]
     },
     {
       "id": "io.github.yuloong07star.luwi.sample.whalewidget",
@@ -92,7 +107,15 @@
       ],
       "sha256": "sha256:969da193a853d7b2095789384235e4f3c179f89e65d41bd2da07576297a9a691",
       "size": 2396996,
-      "path": "packages/art-whale-widget-2.0.0.lwp"
+      "path": "packages/art-whale-widget-2.0.0.lwp",
+      "description": "桌面上那格会动的鲸鱼娘 (art 域): 零代码零能力, 装完即用, 桌面那一格由 Luwi 的宿主槽画",
+      "tags": [
+        "widget",
+        "art",
+        "桌面",
+        "鲸鱼娘",
+        "推荐"
+      ]
     },
     {
       "id": "io.github.yuloong07star.luwi.sample.whalewidget",
@@ -124,7 +147,14 @@
       ],
       "sha256": "sha256:bab3dee7f9a9416ba880998f026e14b73d8bad849374885c374eceee13f3208c",
       "size": 7748,
-      "path": "packages/whale-widget-1.1.4.lwp"
+      "path": "packages/whale-widget-1.1.4.lwp",
+      "description": "鲸鱼娘桌面小组件 (companion 老路): 桌面组件由伴侣 APK 声明, 包里带地址装的时候会顺手装上",
+      "tags": [
+        "widget",
+        "companion",
+        "桌面",
+        "鲸鱼娘"
+      ]
     },
     {
       "id": "io.github.yuloong07star.luwi.sample.whalewidget",
@@ -156,7 +186,13 @@
       ],
       "sha256": "sha256:125ad6f6077484b11ff5b37a55b47ac8a4ca5804ebc34b94591a3b8012ee3923",
       "size": 6968,
-      "path": "packages/whale-widget-1.1.2.lwp"
+      "path": "packages/whale-widget-1.1.2.lwp",
+      "description": "鲸鱼娘桌面小组件 (companion 旧版): 伴侣 APK 要自己另外装, 新装请用 2.0.0 那一份",
+      "tags": [
+        "widget",
+        "companion",
+        "旧版"
+      ]
     }
   ],
   "revoked": []
