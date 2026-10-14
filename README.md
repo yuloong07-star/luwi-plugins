@@ -78,9 +78,14 @@ Luwi 那边不放 `.lwp` (2026-10-11 主人定的口径), 它的 `plugins/` 只�
 这一层每一份包的 id / 版本 / 地址 / 整包 sha256 / 体积 / 发布者指纹 / 能力 / `minLw`, 末尾带一份
 `revoked`。它**不是手抄的**: `tools/lw-plugin-index.mjs build` 会把每份包拆开, 逐文件哈希与发布者签名
 都验一遍, 验不过的那一份根本不进索引; 发版前拿 `check` 与包对一遍。**Luwi 那边读索引那一半 (P5)
-还没接通**, 所以今天装机还是靠上面那条链接。能直接取的地址是
-`https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@index-1/index.json` (手机上实测通的那一条;
-`@main` 那一份要 raw 通的地方才取得到)。
+2026-10-16 接通了** (设置 → 插件 → 「浏览插件仓库」: 读 / 搜 / 装, 装之前按索引核整包 sha256 与
+发布者指纹)。能直接取的地址是
+`https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@index-2/index.json` (应用侧默认认这一条,
+`index-1` 留作兜底; `@main` 那一份要 raw 通的地方才取得到)。
+
+**索引里的 `description` 与 `tags` 走侧车** ([tools/lw-plugin-index.meta.json](tools/lw-plugin-index.meta.json)):
+`plugin.json` 是签名载荷, 往里加一个"给人看的简介"就要全部重签 —— 所以这两样按 `id@version`
+(或裸 `id`) 手写在侧车里, 生成器只搬运不校验; 侧车里没有的那一条就没有简介, 不拦。
 
 
 老那一片 companion 那条路 (1.1.x) 还在本仓库的 [samples/whale-widget](samples/whale-widget/plugin/README.md),
