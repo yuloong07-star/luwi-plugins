@@ -61,6 +61,22 @@ const indexFile = resolve(option('index', 'index.json'))
 /** jsDelivr 的几个等价镜像域; 第一个进 `url`, 其余进 `mirrors` */
 const MIRRORS = ['fastly.jsdelivr.net', 'gcore.jsdelivr.net', 'testingcf.jsdelivr.net']
 
+/** 这份生态仓自己是谁 (拼 raw 那一路镜像要用) */
+const repo = option('repo', 'yuloong07-star/luwi-plugins')
+
+/**
+ * 反代 `raw.githubusercontent.com` 的几条路, 放在 `mirrors` 末尾
+ *
+ * **2026-10-15 主人报"安装太慢"时加的**: 本机实测 jsDelivr 四个域**全部不通** (三个超时、`cdn` 那个
+ * SSL 直接失败), 只有这两条代理通 (ghproxy.net 224 KB/s / gh-proxy.com 208 KB/s)。手机网络与本机
+ * 不同 —— 它那会儿反而能从 `cdn.jsdelivr.net` 慢慢下下来 —— 所以**两种形式都留在 mirrors 里**:
+ * 客户端逐条试, 谁通用谁, 谁快用谁 (见 `PluginDownload.fetchAny`)
+ *
+ * **第一条会当主址** (进 `url`), 所以按 2026-10-15 本机实测的速度排: gh-proxy.com 320 KB/s,
+ * ghfast.top 234 KB/s, ghproxy.net 58 KB/s
+ */
+const RAW_PROXIES = ['https://gh-proxy.com/', 'https://ghfast.top/', 'https://ghproxy.net/']
+
 /** 规范化 JSON: 与 Kotlin 那侧同一套规则 (键递归按码点排序 / 只留 `,` 与 `:` / 数字只许整数) */
 function canonical(value) {
   if (value === null) return 'null'
@@ -177,7 +193,12 @@ async function entryOf(name, bytes) {
   const signed = verifyBytes('sha256', payloadOf(manifest, hashes), createPublicKey({ key: der, format: 'der', type: 'spki' }), Buffer.from(String(publisher.signature ?? ''), 'base64'))
   if (!signed) throw new Error('签名验不过 (载荷与 plugin.json 对不上, 或者这份包被改过)')
 
-  const url = `${base}${name}`
+  // 主址取**反代里实测最快的那一条** (2026-10-15 本机: gh-proxy.com 320 KB/s, ghfast.top 234 KB/s,
+  // 而 jsDelivr 四个域全不通)。jsDelivr 那几个域退到 mirrors 里 —— 换个网络 (比如主人的手机)
+  // 它们可能反而是通的, 所以一条都不删, 只是不再占着第一位
+  const jsdelivr = `https://cdn.jsdelivr.net/gh/${repo}@${ref}/packages/${name}`
+  const rawPath = `raw.githubusercontent.com/${repo}/${ref}/packages/${name}`
+  const url = `${RAW_PROXIES[0]}https://${rawPath}`
   const file = `packages/${name}`
   const described = metaFor(manifest.id, manifest.version)
   return {
@@ -196,7 +217,13 @@ async function entryOf(name, bytes) {
       tools: (manifest.tools ?? []).map((tool) => tool.name),
       publisher: { name: publisher.name, fingerprint, key: publisher.key },
       url,
-      mirrors: MIRRORS.map((host) => url.replace('cdn.jsdelivr.net', host)),
+      mirrors: [
+        // 其余反代
+        ...RAW_PROXIES.slice(1).map((prefix) => `${prefix}https://${rawPath}`),
+        // jsDelivr 那几个域 (原来它们是主址)
+        ...MIRRORS.map((host) => jsdelivr.replace('cdn.jsdelivr.net', host)),
+        jsdelivr,
+      ],
       sha256: sha256(bytes),
       size: bytes.length,
       path: file,

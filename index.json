@@ -1,6 +1,6 @@
 {
   "format": "lw-plugin-index/1",
-  "generated": "2026-10-15T05:58:44Z",
+  "generated": "2026-10-15T10:04:16Z",
   "source": "https://github.com/yuloong07-star/luwi-plugins",
   "note": "本文件由 tools/lw-plugin-index.mjs 生成: 每个字段都是从 packages/ 里那份 .lwp 现算的 (逐文件哈希与发布者签名都验过)。sha256 是整包的摘要, 带 sha256: 前缀。revoked 是撤销表, 命中即不该装。",
   "plugins": [
@@ -28,11 +28,14 @@
         "fingerprint": "sha256:ea8098f95122611234b96f89912b06bfe4dc218930936844b463088ae89eea52",
         "key": "ecdsa-p256:MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfPe9pBGIJSqcDBmIFUUK+Lqu7+cv5T3MDq09jniLd+Q7ZcoQ8DmfIyEjMIgsLd7RfmsiW7NKkugE8/tw6x6LSg=="
       },
-      "url": "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/inline-timer-1.0.0.lwp",
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/inline-timer-1.0.0.lwp",
       "mirrors": [
+        "https://ghfast.top/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/inline-timer-1.0.0.lwp",
+        "https://ghproxy.net/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/inline-timer-1.0.0.lwp",
         "https://fastly.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/inline-timer-1.0.0.lwp",
         "https://gcore.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/inline-timer-1.0.0.lwp",
-        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/inline-timer-1.0.0.lwp"
+        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/inline-timer-1.0.0.lwp",
+        "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/inline-timer-1.0.0.lwp"
       ],
       "sha256": "sha256:20660ee4fcc1ec947b89ac6637a73dde6b7ee21ecee92e621ceb89846582be16",
       "size": 7014,
@@ -63,11 +66,14 @@
         "fingerprint": "sha256:ea8098f95122611234b96f89912b06bfe4dc218930936844b463088ae89eea52",
         "key": "ecdsa-p256:MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfPe9pBGIJSqcDBmIFUUK+Lqu7+cv5T3MDq09jniLd+Q7ZcoQ8DmfIyEjMIgsLd7RfmsiW7NKkugE8/tw6x6LSg=="
       },
-      "url": "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/art-ball-theme-1.0.0.lwp",
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/art-ball-theme-1.0.0.lwp",
       "mirrors": [
+        "https://ghfast.top/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/art-ball-theme-1.0.0.lwp",
+        "https://ghproxy.net/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/art-ball-theme-1.0.0.lwp",
         "https://fastly.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/art-ball-theme-1.0.0.lwp",
         "https://gcore.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/art-ball-theme-1.0.0.lwp",
-        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/art-ball-theme-1.0.0.lwp"
+        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/art-ball-theme-1.0.0.lwp",
+        "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/art-ball-theme-1.0.0.lwp"
       ],
       "sha256": "sha256:c5d15d693f7d29d3c240c12ce594f9a9b0ecad3fb26d99bfbba956548efad425",
       "size": 12222,
@@ -99,11 +105,14 @@
         "fingerprint": "sha256:ea8098f95122611234b96f89912b06bfe4dc218930936844b463088ae89eea52",
         "key": "ecdsa-p256:MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfPe9pBGIJSqcDBmIFUUK+Lqu7+cv5T3MDq09jniLd+Q7ZcoQ8DmfIyEjMIgsLd7RfmsiW7NKkugE8/tw6x6LSg=="
       },
-      "url": "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/art-whale-widget-2.0.0.lwp",
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/art-whale-widget-2.0.0.lwp",
       "mirrors": [
+        "https://ghfast.top/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/art-whale-widget-2.0.0.lwp",
+        "https://ghproxy.net/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/art-whale-widget-2.0.0.lwp",
         "https://fastly.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/art-whale-widget-2.0.0.lwp",
         "https://gcore.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/art-whale-widget-2.0.0.lwp",
-        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/art-whale-widget-2.0.0.lwp"
+        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/art-whale-widget-2.0.0.lwp",
+        "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/art-whale-widget-2.0.0.lwp"
       ],
       "sha256": "sha256:969da193a853d7b2095789384235e4f3c179f89e65d41bd2da07576297a9a691",
       "size": 2396996,
@@ -139,11 +148,14 @@
         "fingerprint": "sha256:ea8098f95122611234b96f89912b06bfe4dc218930936844b463088ae89eea52",
         "key": "ecdsa-p256:MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfPe9pBGIJSqcDBmIFUUK+Lqu7+cv5T3MDq09jniLd+Q7ZcoQ8DmfIyEjMIgsLd7RfmsiW7NKkugE8/tw6x6LSg=="
       },
-      "url": "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whale-widget-1.1.4.lwp",
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/whale-widget-1.1.4.lwp",
       "mirrors": [
+        "https://ghfast.top/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/whale-widget-1.1.4.lwp",
+        "https://ghproxy.net/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/whale-widget-1.1.4.lwp",
         "https://fastly.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whale-widget-1.1.4.lwp",
         "https://gcore.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whale-widget-1.1.4.lwp",
-        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whale-widget-1.1.4.lwp"
+        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whale-widget-1.1.4.lwp",
+        "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whale-widget-1.1.4.lwp"
       ],
       "sha256": "sha256:bab3dee7f9a9416ba880998f026e14b73d8bad849374885c374eceee13f3208c",
       "size": 7748,
@@ -178,11 +190,14 @@
         "fingerprint": "sha256:ea8098f95122611234b96f89912b06bfe4dc218930936844b463088ae89eea52",
         "key": "ecdsa-p256:MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfPe9pBGIJSqcDBmIFUUK+Lqu7+cv5T3MDq09jniLd+Q7ZcoQ8DmfIyEjMIgsLd7RfmsiW7NKkugE8/tw6x6LSg=="
       },
-      "url": "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whale-widget-1.1.2.lwp",
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/whale-widget-1.1.2.lwp",
       "mirrors": [
+        "https://ghfast.top/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/whale-widget-1.1.2.lwp",
+        "https://ghproxy.net/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/whale-widget-1.1.2.lwp",
         "https://fastly.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whale-widget-1.1.2.lwp",
         "https://gcore.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whale-widget-1.1.2.lwp",
-        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whale-widget-1.1.2.lwp"
+        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whale-widget-1.1.2.lwp",
+        "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whale-widget-1.1.2.lwp"
       ],
       "sha256": "sha256:125ad6f6077484b11ff5b37a55b47ac8a4ca5804ebc34b94591a3b8012ee3923",
       "size": 6968,
@@ -212,11 +227,14 @@
         "fingerprint": "sha256:ea8098f95122611234b96f89912b06bfe4dc218930936844b463088ae89eea52",
         "key": "ecdsa-p256:MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfPe9pBGIJSqcDBmIFUUK+Lqu7+cv5T3MDq09jniLd+Q7ZcoQ8DmfIyEjMIgsLd7RfmsiW7NKkugE8/tw6x6LSg=="
       },
-      "url": "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whalegirl-balltheme-1.0.3.lwp",
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/whalegirl-balltheme-1.0.3.lwp",
       "mirrors": [
+        "https://ghfast.top/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/whalegirl-balltheme-1.0.3.lwp",
+        "https://ghproxy.net/https://raw.githubusercontent.com/yuloong07-star/luwi-plugins/plugins-2.7.7d/packages/whalegirl-balltheme-1.0.3.lwp",
         "https://fastly.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whalegirl-balltheme-1.0.3.lwp",
         "https://gcore.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whalegirl-balltheme-1.0.3.lwp",
-        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whalegirl-balltheme-1.0.3.lwp"
+        "https://testingcf.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whalegirl-balltheme-1.0.3.lwp",
+        "https://cdn.jsdelivr.net/gh/yuloong07-star/luwi-plugins@plugins-2.7.7d/packages/whalegirl-balltheme-1.0.3.lwp"
       ],
       "sha256": "sha256:27afa14e5658587f99bbf315a62c9e9d8b9f320b12bd838624f30a68518d6c39",
       "size": 14263580,
