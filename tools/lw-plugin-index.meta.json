@@ -2,22 +2,60 @@
   "_说明": "索引的侧车: 按 id@version (或裸 id) 给 description 与 tags, 由 tools/lw-plugin-index.mjs 合并进 index.json。plugin.json 是签名载荷, 别把'给人看的简介'塞进去 (那要全部重签); 这里是手写的, 生成器只搬运不校验。",
   "io.example.timer": {
     "description": "番茄钟: 开始/查看/到点, 状态会推到桌面的图文槽。inline 域, 要先把发布者指纹加进 .inline-allow.json 才装得上",
-    "tags": ["timer", "inline", "widget", "番茄钟"]
+    "tags": [
+      "timer",
+      "inline",
+      "widget",
+      "番茄钟"
+    ]
   },
   "io.github.yuloong07star.luwi.sample.balltheme": {
     "description": "浮标外观样例「青瓷」: 五个状态各一张静态图, 装完在设置 → 插件 → 浮标外观里挑一下",
-    "tags": ["ball", "theme", "art", "外观", "浮标"]
+    "tags": [
+      "ball",
+      "theme",
+      "art",
+      "外观",
+      "浮标"
+    ]
   },
   "io.github.yuloong07star.luwi.sample.whalewidget@2.0.0": {
     "description": "桌面上那格会动的鲸鱼娘 (art 域): 零代码零能力, 装完即用, 桌面那一格由 Luwi 的宿主槽画",
-    "tags": ["widget", "art", "桌面", "鲸鱼娘", "推荐"]
+    "tags": [
+      "widget",
+      "art",
+      "桌面",
+      "鲸鱼娘",
+      "推荐"
+    ]
   },
   "io.github.yuloong07star.luwi.sample.whalewidget@1.1.4": {
     "description": "鲸鱼娘桌面小组件 (companion 老路): 桌面组件由伴侣 APK 声明, 包里带地址装的时候会顺手装上",
-    "tags": ["widget", "companion", "桌面", "鲸鱼娘"]
+    "tags": [
+      "widget",
+      "companion",
+      "桌面",
+      "鲸鱼娘"
+    ]
   },
   "io.github.yuloong07star.luwi.sample.whalewidget@1.1.2": {
     "description": "鲸鱼娘桌面小组件 (companion 旧版): 伴侣 APK 要自己另外装, 新装请用 2.0.0 那一份",
-    "tags": ["widget", "companion", "旧版"]
+    "tags": [
+      "widget",
+      "companion",
+      "旧版"
+    ]
+  },
+  "io.github.yuloong07star.luwi.theme.whalegirl": {
+    "description": "浮标外观 · 鲸鱼娘: 用人物立绘代替浮标, 七个状态各有动作 (待机呼吸 / 睡眼惺忪 / 工作思考 / 开心跃动 / 炸毛 / 东张西望 / 屈膝礼仪), 素材已抠底透明。要 Luwi 2.7.6+ 才能按 contain 摆放 (旧版会把它裁成圆)。",
+    "tags": [
+      "ball",
+      "theme",
+      "art",
+      "浮标",
+      "外观",
+      "鲸鱼娘",
+      "动图"
+    ]
   }
 }
