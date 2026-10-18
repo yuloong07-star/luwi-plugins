@@ -46,6 +46,17 @@
       "旧版"
     ]
   },
+  "io.github.yuloong07star.luwi.desktopchat": {
+    "description": "桌面对话: 桌面上那一格放当前浮标外观 (或插件自带立绘), 下面是最新几句对话, 底下一颗「说一句」; 点它就从浮标旁边冒出输入窗, 问答都以漫画气泡出来。零代码零能力 (art 域), 要 Luwi 2.7.8+",
+    "tags": [
+      "widget",
+      "art",
+      "桌面",
+      "对话",
+      "聊天",
+      "气泡"
+    ]
+  },
   "io.github.yuloong07star.luwi.theme.whalegirl": {
     "description": "浮标外观 · 鲸鱼娘: 用人物立绘代替浮标, 七个状态各有动作 (待机呼吸 / 睡眼惺忪 / 工作思考 / 开心跃动 / 炸毛 / 东张西望 / 屈膝礼仪), 素材已抠底透明。这一套至少要 72 dp 才画得开 (全身立绘), 球大小可在设置里调; 要 Luwi 2.7.7+ (fit: contain 与 minDp 都是该版新增)",
     "tags": [
